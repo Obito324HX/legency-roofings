@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legency Roofings &amp; Glass — Lusaka, Zambia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --steel-900:#12181C;
+    --steel-800:#1B2328;
+    --steel-050:#EEF0EF;
+    --steel-100:#E2E5E3;
+    --silver:#B7BCC0;
+    --red:#D0202B;
+    --red-dark:#A1181F;
+    --blue:#1E4E7A;
+    --blue-soft:#3E7CB1;
+    --ink:#1B2226;
+    --ink-soft:#57616B;
+    --line:rgba(27,34,38,0.12);
+    --line-on-dark:rgba(238,240,239,0.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--steel-050);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .mono{font-family:'Space Mono',monospace;}
+  h1,h2,h3{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    line-height:0.95;
+    letter-spacing:-0.01em;
+    text-transform:uppercase;
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:20px;height:2px;background:var(--red);display:inline-block;}
+
+  /* --- corrugation divider: literal roofing-sheet wave profile --- */
+  .corrugation{width:100%;height:14px;display:block;}
+  .corrugation path{fill:none;stroke-width:2;}
+
+  /* --- Nav --- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 5vw;
+    background:linear-gradient(to bottom, rgba(18,24,28,0.75), rgba(18,24,28,0));
+    transition:background .35s ease, backdrop-filter .35s ease, border-color .35s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.solid{
+    background:rgba(18,24,28,0.96);
+    backdrop-filter:blur(6px);
+    border-color:var(--line-on-dark);
+  }
+  .brand{display:flex;align-items:center;gap:12px;color:#fff;}
+  .brand-mark{width:38px;height:38px;flex-shrink:0;object-fit:contain;}
+  .brand-word{font-family:'Big Shoulders Display',sans-serif;font-size:21px;font-weight:800;letter-spacing:0;text-transform:uppercase;line-height:1;}
+  .brand-word small{display:block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.18em;color:var(--silver);font-weight:400;text-transform:uppercase;margin-top:2px;}
+  nav ul{display:flex;align-items:center;gap:34px;list-style:none;}
+  nav a{
+    color:#fff;font-size:12.5px;
+    font-family:'Space Mono',monospace;
+    letter-spacing:0.06em;text-transform:uppercase;
+    opacity:0.82;transition:opacity .2s, border-color .2s;
+    border-bottom:1px solid transparent;padding-bottom:3px;
+  }
+  nav a:not(.nav-cta):hover{opacity:1;border-color:var(--red);}
+  .nav-cta{
+    background:var(--red);color:#fff !important;
+    padding:9px 18px;border-radius:1px;opacity:1 !important;
+  }
+  .nav-cta:hover{background:var(--red-dark);}
+  .menu-toggle{display:none;color:#fff;background:none;border:none;font-size:22px;}
+
+  /* --- Hero --- */
+  .hero{
+    position:relative;height:100vh;min-height:640px;
+    display:flex;align-items:flex-end;color:#fff;overflow:hidden;
+  }
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(0.94) contrast(1.05);}
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to top, rgba(12,16,19,0.92) 0%, rgba(12,16,19,0.42) 40%, rgba(12,16,19,0.1) 62%, rgba(12,16,19,0.5) 100%);
+  }
+  .hero-inner{position:relative;z-index:2;padding:0 5vw 4.4vw;max-width:920px;}
+  .hero .eyebrow{color:var(--silver);margin-bottom:16px;}
+  .hero .eyebrow::before{background:var(--red);}
+  .hero h1{font-size:clamp(38px,7vw,92px);}
+  .hero h1 span{color:var(--red);}
+  .hero p{max-width:520px;margin-top:20px;font-size:16px;line-height:1.6;color:rgba(238,240,239,0.82);font-weight:300;}
+  .hero-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:14px 26px;
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+    border-radius:1px;cursor:pointer;transition:all .22s ease;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--red);color:#fff;border-color:var(--red);}
+  .btn-primary:hover{background:var(--red-dark);border-color:var(--red-dark);}
+  .btn-ghost{border-color:rgba(238,240,239,0.5);color:#fff;}
+  .btn-ghost:hover{border-color:#fff;background:rgba(238,240,239,0.08);}
+  .btn-dark{background:var(--steel-900);color:#fff;border-color:var(--steel-900);}
+  .btn-dark:hover{background:#000;}
+
+  .hero-strip{
+    position:absolute;bottom:0;left:0;right:0;z-index:2;
+    display:flex;border-top:1px solid var(--line-on-dark);
+    background:rgba(18,24,28,0.55);backdrop-filter:blur(3px);
+  }
+  .hero-strip div{
+    flex:1;padding:14px 5vw;font-family:'Space Mono',monospace;font-size:11px;
+    letter-spacing:0.06em;color:rgba(238,240,239,0.75);border-right:1px solid var(--line-on-dark);
+    text-transform:uppercase;
+  }
+  .hero-strip div:last-child{border-right:none;}
+  .hero-strip b{color:#fff;font-weight:700;}
+
+  /* --- Section shells --- */
+  section{padding:110px 5vw;}
+  .section-head{max-width:660px;margin-bottom:56px;}
+  .section-head h2{font-size:clamp(30px,4vw,50px);color:var(--ink);margin-top:14px;}
+  .section-head p{margin-top:16px;color:var(--ink-soft);font-size:15px;line-height:1.7;max-width:520px;}
+  .section-dark{background:var(--steel-900);color:var(--steel-050);}
+  .section-dark .section-head h2{color:#fff;}
+  .section-dark .section-head p{color:rgba(238,240,239,0.62);}
+  .section-dark .eyebrow{color:var(--silver);}
+
+  /* --- Trust strip --- */
+  .trust{
+    background:var(--steel-900);color:#fff;
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line-on-dark);
+  }
+  .trust > div{padding:34px 5vw;border-right:1px solid var(--line-on-dark);}
+  .trust > div:last-child{border-right:none;}
+  .trust b{font-family:'Big Shoulders Display',sans-serif;font-size:30px;color:var(--red);display:block;font-weight:800;}
+  .trust span{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(238,240,239,0.62);margin-top:6px;display:block;}
+
+  /* --- Gauge ladder (signature pricing element) --- */
+  .ladder{display:flex;gap:2px;align-items:flex-end;height:340px;margin-top:20px;}
+  .ladder-bar{
+    flex:1;position:relative;display:flex;flex-direction:column;justify-content:flex-end;
+    cursor:pointer;transition:transform .25s ease;
+  }
+  .ladder-bar:hover{transform:translateY(-4px);}
+  .ladder-fill{
+    width:100%;border-radius:1px 1px 0 0;
+    display:flex;flex-direction:column;justify-content:flex-start;align-items:center;
+    padding-top:14px;color:#fff;position:relative;
+    box-shadow:inset 0 -3px 0 rgba(0,0,0,0.18);
+  }
+  .ladder-fill .price{font-family:'Big Shoulders Display',sans-serif;font-size:26px;font-weight:800;}
+  .ladder-fill .price small{font-family:'Space Mono',monospace;font-size:10px;font-weight:400;display:block;margin-top:2px;letter-spacing:0.04em;}
+  .ladder-label{
+    margin-top:10px;text-align:center;font-family:'Space Mono',monospace;font-size:11.5px;
+    color:var(--ink-soft);letter-spacing:0.02em;
+  }
+  .ladder-label b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px;}
+  .ladder-note{
+    margin-top:26px;padding:16px 18px;background:var(--steel-100);border-left:3px solid var(--red);
+    font-size:13px;color:var(--ink-soft);line-height:1.6;
+  }
+
+  /* --- Also supplying grid --- */
+  .supply-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .supply-card{
+    background:var(--steel-050);padding:32px 26px;position:relative;overflow:hidden;
+    min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;
+  }
+  .supply-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;transition:transform .5s ease;}
+  .supply-card:hover img{transform:scale(1.06);}
+  .supply-card::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to top, rgba(18,24,28,0.9) 0%, rgba(18,24,28,0.15) 55%, rgba(18,24,28,0.05) 100%);
+  }
+  .supply-card-inner{position:relative;z-index:2;color:#fff;}
+  .supply-card-inner .eyebrow{color:var(--silver);margin-bottom:8px;font-size:10px;}
+  .supply-card-inner .eyebrow::before{background:var(--red);}
+  .supply-card-inner h3{font-size:22px;color:#fff;}
+  .supply-card-inner p{font-size:12.5px;color:rgba(238,240,239,0.72);margin-top:8px;line-height:1.55;font-weight:300;}
+
+  /* --- Colors available --- */
+  .swatch-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;}
+  .swatch{
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.04em;color:var(--ink-soft);
+  }
+  .swatch-chip{width:52px;height:52px;border-radius:2px;border:1px solid rgba(0,0,0,0.1);box-shadow:0 2px 6px rgba(0,0,0,0.08);}
+
+  /* --- Gallery --- */
+  .gallery{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;}
+  .gallery-main{position:relative;aspect-ratio:4/3.1;overflow:hidden;}
+  .gallery-main img{width:100%;height:100%;object-fit:cover;}
+  .gallery-main-label{
+    position:absolute;bottom:18px;left:18px;z-index:2;color:#fff;
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;
+    background:rgba(18,24,28,0.72);padding:8px 14px;
+  }
+  .gallery-side{display:flex;flex-direction:column;gap:14px;}
+  .gallery-side-item{position:relative;flex:1;overflow:hidden;}
+  .gallery-side-item img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+
+  /* --- Locations --- */
+  .locations{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:10px;}
+  .location-card{background:var(--steel-050);padding:38px;}
+  .location-card .eyebrow{margin-bottom:14px;}
+  .location-card h3{font-size:24px;color:var(--ink);margin-bottom:14px;}
+  .location-card p{font-size:14px;color:var(--ink-soft);line-height:1.7;}
+  .location-card .tag{
+    display:inline-block;margin-top:16px;font-family:'Space Mono',monospace;font-size:10.5px;
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--red);border:1px solid rgba(208,32,43,0.35);
+    padding:6px 12px;
+  }
+
+  /* --- Quote form --- */
+  .quote-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .quote-form{display:flex;flex-direction:column;gap:14px;}
+  .quote-form label{
+    font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--ink-soft);margin-bottom:-6px;
+  }
+  .quote-form input,.quote-form select,.quote-form textarea{
+    font-family:'Inter',sans-serif;font-size:14.5px;padding:13px 14px;
+    border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:1px;
+  }
+  .quote-form textarea{min-height:90px;resize:vertical;}
+  .quote-form button{align-self:flex-start;margin-top:6px;}
+  .quote-confirm{
+    display:none;margin-top:16px;padding:16px 18px;background:rgba(30,78,122,0.08);
+    border-left:3px solid var(--blue);color:var(--blue);font-size:13.5px;line-height:1.6;
+  }
+  .quote-confirm.show{display:block;}
+  .contact-block{background:var(--steel-900);color:#fff;padding:38px;}
+  .contact-block .eyebrow{color:var(--silver);margin-bottom:18px;}
+  .contact-block .eyebrow::before{background:var(--red);}
+  .contact-line{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line-on-dark);font-size:14px;}
+  .contact-line:last-child{border-bottom:none;}
+  .contact-line span:first-child{color:rgba(238,240,239,0.55);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;}
+  .contact-line a{color:#fff;font-weight:500;}
+  .contact-line a:hover{color:var(--red);}
+
+  /* --- Footer --- */
+  footer{background:var(--steel-900);color:rgba(238,240,239,0.7);padding:50px 5vw 30px;}
+  .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:34px;border-bottom:1px solid var(--line-on-dark);}
+  .footer-brand{display:flex;align-items:center;gap:12px;}
+  .footer-brand .brand-mark{width:34px;height:34px;}
+  .footer-brand-word{font-family:'Big Shoulders Display',sans-serif;font-size:19px;color:#fff;font-weight:800;text-transform:uppercase;}
+  .footer-links{display:flex;gap:50px;flex-wrap:wrap;}
+  .footer-col h4{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--silver);margin-bottom:12px;}
+  .footer-col a{display:block;margin-bottom:8px;font-size:13.5px;font-weight:300;}
+  .footer-col a:hover{color:var(--red);}
+  .footer-bottom{display:flex;justify-content:space-between;padding-top:22px;flex-wrap:wrap;gap:10px;font-size:12.5px;}
+  .footer-bottom a{color:var(--silver);border-bottom:1px solid rgba(183,188,192,0.35);padding-bottom:1px;}
+  .footer-bottom a:hover{border-color:var(--silver);}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* --- Lightbox / photo viewer --- */
+  .lightbox-img{cursor:zoom-in;}
+  .lightbox-trigger{position:relative;}
+  .lightbox-trigger::after{
+    content:'⤢ View';position:absolute;top:10px;right:10px;z-index:3;
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;
+    color:#fff;background:rgba(18,24,28,0.65);padding:5px 9px;opacity:0;transition:opacity .2s ease;
+    pointer-events:none;
+  }
+  .lightbox-trigger:hover::after{opacity:1;}
+  .lightbox-overlay{
+    position:fixed;inset:0;z-index:200;background:rgba(10,13,15,0.96);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .25s ease;
+  }
+  .lightbox-overlay.open{opacity:1;pointer-events:auto;}
+  .lightbox-stage{position:relative;max-width:88vw;max-height:82vh;}
+  .lightbox-stage img{max-width:88vw;max-height:82vh;width:auto;height:auto;display:block;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+  .lightbox-caption{
+    position:absolute;left:0;right:0;bottom:-38px;text-align:center;color:rgba(238,240,239,0.7);
+    font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:0.04em;
+  }
+  .lightbox-close,.lightbox-nav{
+    position:absolute;background:rgba(238,240,239,0.08);border:1px solid var(--line-on-dark);color:#fff;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease;
+  }
+  .lightbox-close:hover,.lightbox-nav:hover{background:rgba(238,240,239,0.18);}
+  .lightbox-close{top:24px;right:24px;width:42px;height:42px;font-size:20px;border-radius:50%;}
+  .lightbox-nav{top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:22px;border-radius:50%;}
+  .lightbox-prev{left:18px;}
+  .lightbox-next{right:18px;}
+  @media(max-width:600px){
+    .lightbox-nav{width:38px;height:38px;font-size:18px;}
+    .lightbox-close{width:36px;height:36px;top:14px;right:14px;}
+    .lightbox-caption{bottom:-30px;font-size:10px;}
+  }
+
+  @media(max-width:900px){
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+    .trust{grid-template-columns:repeat(2,1fr);}
+    .trust > div:nth-child(2){border-right:none;}
+    .trust > div{border-bottom:1px solid var(--line-on-dark);}
+    .supply-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery{grid-template-columns:1fr;}
+    .gallery-side{flex-direction:row;}
+    .locations{grid-template-columns:1fr;}
+    .quote-wrap{grid-template-columns:1fr;gap:40px;}
+    .hero-strip{flex-wrap:wrap;}
+    .hero-strip div{flex:1 1 50%;border-bottom:1px solid var(--line-on-dark);}
+    .ladder{height:280px;}
+    .ladder-fill .price{font-size:18px;}
+  }
+  @media(max-width:600px){
+    .supply-grid{grid-template-columns:1fr;}
+    section{padding:80px 6vw;}
+    .ladder{gap:6px;}
+    .ladder-label b{font-size:11px;}
+    .ladder-label{font-size:9px;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <a href="#" class="brand">
+    <img src="images/logo.png" class="brand-mark" alt="Legency Roofings logo">
+    <span class="brand-word">Legency<small>The Roof Giant</small></span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#supplying">Aluminium &amp; Glass</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li><a href="#quote" class="nav-cta">Request Quote</a></li>
+    </ul>
+  </nav>
+  <button class="menu-toggle">☰</button>
+</header>
+
+<section class="hero">
+  <img src="images/project-hip-maroon.jpg" alt="Completed hip roof installation, maroon IBR sheets, Lusaka">
+  <div class="hero-inner">
+    <span class="eyebrow">Kasuba Road · Light Industrial Area · Lusaka</span>
+    <h1>Roofs built to<br>outlast the <span>house.</span></h1>
+    <p>Legency Roofings &amp; Glass — The Roof Giant — supplies roofing sheets in every gauge and colour, aluminium window and door frames, and structural steel from their Kasuba Road workshop, cut to size and ready for site.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn btn-primary">View Pricing</a>
+      <a href="#quote" class="btn btn-ghost">Request a Quote</a>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div><b>1.4K+</b> Facebook Followers</div>
+    <div><b>2</b> Sales Outlets in Lusaka</div>
+    <div><b>0.25mm–0.6mm</b> Gauge Range</div>
+    <div><b>6</b> Colours in Stock</div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="section-head reveal">
+    <span class="eyebrow">Roofing Sheets</span>
+    <h2>Priced by the Gauge</h2>
+    <p>Thicker gauge, stronger sheet, higher price per metre. Every bar below is the current rate — tap a gauge to jump straight to a quote for it.</p>
+  </div>
+
+  <div class="ladder reveal">
+    <div class="ladder-bar" data-gauge="0.6mm" data-price="120" onclick="jumpToQuote('0.6mm — K120/m')">
+      <div class="ladder-fill" style="height:100%;background:#232B2E;">
+        <div class="price">K120<small>PER METRE</small></div>
+      </div>
+    </div>
+    <div class="ladder-bar" data-gauge="0.5mm" data-price="90" onclick="jumpToQuote('0.5mm — K90/m')">
+      <div class="ladder-fill" style="height:78%;background:#1E4E7A;">
+        <div class="price">K90<small>PER METRE</small></div>
+      </div>
+    </div>
+    <div class="ladder-bar" data-gauge="0.4mm" data-price="75" onclick="jumpToQuote('0.4mm — K75/m')">
+      <div class="ladder-fill" style="height:64%;background:#2F6B3A;">
+        <div class="price">K75<small>PER METRE</small></div>
+      </div>
+    </div>
+    <div class="ladder-bar" data-gauge="0.3mm" data-price="65" onclick="jumpToQuote('0.3mm — K65/m')">
+      <div class="ladder-fill" style="height:54%;background:#D0202B;">
+        <div class="price">K65<small>PER METRE</small></div>
+      </div>
+    </div>
+    <div class="ladder-bar" data-gauge="0.25mm" data-price="50" onclick="jumpToQuote('0.25mm Ordinary Silver — K50/m')">
+      <div class="ladder-fill" style="height:42%;background:#8A9096;">
+        <div class="price">K50<small>PER METRE</small></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;gap:0;margin-top:10px;">
+    <div style="flex:1;" class="ladder-label"><b>0.6mm</b>Heavy-Duty</div>
+    <div style="flex:1;" class="ladder-label"><b>0.5mm</b>Standard Premium</div>
+    <div style="flex:1;" class="ladder-label"><b>0.4mm</b>Standard</div>
+    <div style="flex:1;" class="ladder-label"><b>0.3mm</b>Economy</div>
+    <div style="flex:1;" class="ladder-label"><b>0.25mm</b>Ordinary Silver</div>
+  </div>
+
+  <div class="ladder-note reveal">
+    Prices are per metre, cut to the length you need. Self-lock roofing sheets are also available in the same colour range — ask for current pricing when you request a quote.
+  </div>
+
+  <div class="swatch-row reveal">
+    <div class="swatch"><div class="swatch-chip" style="background:#1F6B3E;"></div>Forest Green</div>
+    <div class="swatch"><div class="swatch-chip" style="background:#1B4C8C;"></div>Royal Blue</div>
+    <div class="swatch"><div class="swatch-chip" style="background:#7A2E28;"></div>Maroon</div>
+    <div class="swatch"><div class="swatch-chip" style="background:#A11E24;"></div>Signal Red</div>
+    <div class="swatch"><div class="swatch-chip" style="background:#4A5257;"></div>Charcoal Grey</div>
+    <div class="swatch"><div class="swatch-chip" style="background:#C6CACD;border:1px solid rgba(0,0,0,0.15);"></div>Galvanized Silver</div>
+    <div class="swatch"><div class="swatch-chip" style="background:#171A1B;"></div>Self-Lock (Ask for Colour)</div>
+  </div>
+</section>
+
+<div class="trust">
+  <div><b>1.4K+</b><span>Facebook Followers</span></div>
+  <div><b>81</b><span>Stock Updates Posted</span></div>
+  <div><b>Kasuba Rd</b><span>Workshop &amp; Warehouse</span></div>
+  <div><b>Katanga Rd</b><span>Sales Outlet</span></div>
+</div>
+
+<section id="supplying">
+  <div class="section-head reveal">
+    <span class="eyebrow">Also Supplying</span>
+    <h2>Aluminium, Glass &amp; Structural Steel</h2>
+    <p>Roofing is the core of the business, but the yard on Kasuba Road carries what a full build actually needs.</p>
+  </div>
+  <div class="supply-grid reveal">
+    <div class="supply-card lightbox-trigger">
+      <img class="lightbox-img" src="images/aluminium-frames.jpg" alt="Aluminium window and door frames">
+      <div class="supply-card-inner">
+        <span class="eyebrow">Aluminium</span>
+        <h3>Windows &amp; Doors</h3>
+        <p>Casement frames and burglar-bar grills, made to size at the Kasuba Road workshop.</p>
+      </div>
+    </div>
+    <div class="supply-card lightbox-trigger">
+      <img class="lightbox-img" src="images/angle-iron.jpg" alt="Stacked angle iron">
+      <div class="supply-card-inner">
+        <span class="eyebrow">Structural Steel</span>
+        <h3>Angle Iron</h3>
+        <p>Standard stock lengths for trusses, frames and general fabrication work.</p>
+      </div>
+    </div>
+    <div class="supply-card lightbox-trigger">
+      <img class="lightbox-img" src="images/square-tubing.jpg" alt="Stacked square steel tubing">
+      <div class="supply-card-inner">
+        <span class="eyebrow">Structural Steel</span>
+        <h3>Square Tubing</h3>
+        <p>Box-section tube for gates, carports and welded steel frames.</p>
+      </div>
+    </div>
+    <div class="supply-card lightbox-trigger">
+      <img class="lightbox-img" src="images/timber-stock.jpg" alt="Stacked timber battens">
+      <div class="supply-card-inner">
+        <span class="eyebrow">Roofing Timber</span>
+        <h3>Battens &amp; Purlins</h3>
+        <p>Roof timber stock, ready to pair with any sheet gauge on order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="section-dark">
+  <div class="section-head reveal">
+    <span class="eyebrow">From the Yard &amp; the Roof</span>
+    <h2>Completed Work</h2>
+    <p>Real installations and real stock — not stock photography.</p>
+  </div>
+  <div class="gallery reveal">
+    <div class="gallery-main lightbox-trigger">
+      <img class="lightbox-img" src="images/project-gable-green.jpg" alt="Green IBR roof going up on a client build, house under construction">
+      <div class="gallery-main-label">Green IBR Roof — Client Build in Progress</div>
+    </div>
+    <div class="gallery-side">
+      <div class="gallery-side-item lightbox-trigger"><img class="lightbox-img" src="images/coil-warehouse.jpg" alt="Steel coil warehouse"></div>
+      <div class="gallery-side-item lightbox-trigger"><img class="lightbox-img" src="images/galvanized-line.jpg" alt="Roll-forming machine producing sheets"></div>
+      <div class="gallery-side-item lightbox-trigger"><img class="lightbox-img" src="images/tile-roof-charcoal.jpg" alt="Charcoal grey IBR sheets close up"></div>
+    </div>
+  </div>
+  <div class="gallery reveal" style="margin-top:14px;grid-template-columns:1fr 1fr 1fr;">
+    <div class="gallery-side-item lightbox-trigger" style="aspect-ratio:1/1;"><img class="lightbox-img" src="images/project-hip-maroon.jpg" alt="Completed hip roof, maroon sheets"></div>
+    <div class="gallery-side-item lightbox-trigger" style="aspect-ratio:1/1;"><img class="lightbox-img" src="images/shopfront-maroon-silver.jpg" alt="Sheets outside the sales outlet"></div>
+    <div class="gallery-side-item lightbox-trigger" style="aspect-ratio:1/1;"><img class="lightbox-img" src="images/multicolor-warehouse.jpg" alt="Multi-colour sheets in the warehouse"></div>
+  </div>
+</section>
+
+<section id="locations">
+  <div class="section-head reveal">
+    <span class="eyebrow">Visit Us</span>
+    <h2>Two Outlets, One Yard</h2>
+    <p>Come through, see the gauge and colour in hand before you order.</p>
+  </div>
+  <div class="locations reveal">
+    <div class="location-card">
+      <span class="eyebrow">Workshop &amp; Warehouse</span>
+      <h3>Kasuba Road</h3>
+      <p>Plot No. 11836, Kasuba Road, Light Industrial Area, Lusaka. Registered business address and main yard.</p>
+      <span class="tag">Roll-Forming On Site</span>
+    </div>
+    <div class="location-card">
+      <span class="eyebrow">Sales Outlet</span>
+      <h3>Katanga Road</h3>
+      <p>Come through to the Katanga Road outlet to see gauge and colour in hand before you order.</p>
+      <span class="tag">Walk-In Sales</span>
+    </div>
+  </div>
+</section>
+
+<section id="quote" class="section-dark">
+  <div class="section-head reveal">
+    <span class="eyebrow">Get a Price</span>
+    <h2>Request a Quote</h2>
+    <p>Tell us the gauge, colour and how many metres — we'll get back to you with a firm price.</p>
+  </div>
+  <div class="quote-wrap reveal">
+    <form class="quote-form" id="quoteForm">
+      <label>Full Name</label>
+      <input type="text" required placeholder="Your name">
+      <label>Phone Number</label>
+      <input type="tel" required placeholder="09XX XXX XXX">
+      <label>Roofing Gauge</label>
+      <select id="gaugeSelect">
+        <option>0.6mm — K120/m</option>
+        <option>0.5mm — K90/m</option>
+        <option>0.4mm — K75/m</option>
+        <option>0.3mm — K65/m</option>
+        <option>0.25mm Ordinary Silver — K50/m</option>
+        <option>Not sure yet</option>
+      </select>
+      <label>Metres Needed (approx.)</label>
+      <input type="text" placeholder="e.g. 45m">
+      <label>Anything Else</label>
+      <textarea placeholder="Colour preference, delivery address, or other products needed"></textarea>
+      <button type="submit" class="btn btn-primary">Send Request</button>
+      <div class="quote-confirm" id="quoteConfirm">Thank you — your request has been received. Legency Roofings will call or WhatsApp you back with a firm price shortly.</div>
+    </form>
+
+    <div class="contact-block">
+      <span class="eyebrow">Reach Us Directly</span>
+      <div class="contact-line"><span>Call</span><a href="tel:+260972653952">0972 653 952</a></div>
+      <div class="contact-line"><span>Call</span><a href="tel:+260971020778">0971 020 778</a></div>
+      <div class="contact-line"><span>WhatsApp</span><a href="https://wa.me/260971020778" target="_blank" rel="noopener">+260 971 020 778</a></div>
+      <div class="contact-line"><span>Email</span><a href="mailto:legencyroofings01@gmail.com">legencyroofings01@gmail.com</a></div>
+      <div class="contact-line"><span>Workshop</span><span style="color:#fff;font-weight:500;text-align:right;">Kasuba Rd, Light Industrial Area</span></div>
+      <div class="contact-line"><span>Sales Outlet</span><span style="color:#fff;font-weight:500;text-align:right;">Katanga Road</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
+  <div class="lightbox-stage">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">›</button>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="images/logo.png" class="brand-mark" alt="Legency Roofings logo">
+      <span class="footer-brand-word">Legency Roofings &amp; Glass</span>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="#products">IBR Roofing Sheets</a>
+        <a href="#supplying">Aluminium &amp; Glass</a>
+        <a href="#supplying">Structural Steel</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#gallery">Gallery</a>
+        <a href="#locations">Locations</a>
+        <a href="#quote">Request a Quote</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+260972653952">0972 653 952</a>
+        <a href="mailto:legencyroofings01@gmail.com">legencyroofings01@gmail.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Legency Roofings &amp; Glass, Lusaka.</span>
+    <span>Designed &amp; built by <a href="https://zed-forge-xi.vercel.app/" target="_blank" rel="noopener">Zed-Forge</a></span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => header.classList.toggle('solid', window.scrollY > 60));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  function jumpToQuote(label){
+    document.getElementById('gaugeSelect').value = label;
+    document.getElementById('quote').scrollIntoView({behavior:'smooth'});
+  }
+
+  document.getElementById('quoteForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('quoteConfirm').classList.add('show');
+    e.target.reset();
+  });
+
+  // --- Lightbox photo viewer ---
+  const lbImgs = Array.from(document.querySelectorAll('.lightbox-img'));
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbCaption = document.getElementById('lightboxCaption');
+  let lbIndex = 0;
+
+  function updateLightbox(){
+    const src = lbImgs[lbIndex];
+    lbImg.src = src.src;
+    lbCaption.textContent = src.alt || '';
+  }
+  function openLightbox(i){
+    lbIndex = i;
+    updateLightbox();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function stepLightbox(step){
+    lbIndex = (lbIndex + step + lbImgs.length) % lbImgs.length;
+    updateLightbox();
+  }
+  lbImgs.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', () => stepLightbox(-1));
+  document.getElementById('lightboxNext').addEventListener('click', () => stepLightbox(1));
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') stepLightbox(1);
+    if (e.key === 'ArrowLeft') stepLightbox(-1);
+  });
+</script>
+
+</body>
+</html>
