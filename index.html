@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Legency Roofings &amp; Glass — Lusaka, Zambia</title>
+<title>Legency Roofings &amp; Glass, Lusaka, Zambia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -310,8 +310,17 @@
   }
 
   @media(max-width:900px){
-    nav ul{display:none;}
-    .menu-toggle{display:block;}
+    nav ul{
+      display:none;position:fixed;top:0;right:0;bottom:0;left:0;
+      flex-direction:column;align-items:flex-start;gap:0;
+      background:rgba(18,24,28,0.98);backdrop-filter:blur(6px);
+      padding:100px 8vw 40px;z-index:55;
+    }
+    nav ul.open{display:flex;}
+    nav ul li{width:100%;border-bottom:1px solid var(--line-on-dark);}
+    nav a{display:block;padding:20px 0;font-size:15px;}
+    .nav-cta{display:inline-block;margin-top:24px;padding:14px 22px;}
+    .menu-toggle{display:block;position:relative;z-index:60;}
     .trust{grid-template-columns:repeat(2,1fr);}
     .trust > div:nth-child(2){border-right:none;}
     .trust > div{border-bottom:1px solid var(--line-on-dark);}
@@ -342,7 +351,7 @@
     <span class="brand-word">Legency<small>The Roof Giant</small></span>
   </a>
   <nav>
-    <ul>
+    <ul id="navList">
       <li><a href="#products">Products</a></li>
       <li><a href="#supplying">Aluminium &amp; Glass</a></li>
       <li><a href="#gallery">Gallery</a></li>
@@ -350,7 +359,7 @@
       <li><a href="#quote" class="nav-cta">Request Quote</a></li>
     </ul>
   </nav>
-  <button class="menu-toggle">☰</button>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
 </header>
 
 <section class="hero">
@@ -358,7 +367,7 @@
   <div class="hero-inner">
     <span class="eyebrow">Kasuba Road · Light Industrial Area · Lusaka</span>
     <h1>Roofs built to<br>outlast the <span>house.</span></h1>
-    <p>Legency Roofings &amp; Glass — The Roof Giant — supplies roofing sheets in every gauge and colour, aluminium window and door frames, and structural steel from their Kasuba Road workshop, cut to size and ready for site.</p>
+    <p>Legency Roofings &amp; Glass (The Roof Giant) supplies roofing sheets in every gauge and colour, aluminium window and door frames, and structural steel from their Kasuba Road workshop, cut to size and ready for site.</p>
     <div class="hero-actions">
       <a href="#products" class="btn btn-primary">View Pricing</a>
       <a href="#quote" class="btn btn-ghost">Request a Quote</a>
@@ -376,31 +385,31 @@
   <div class="section-head reveal">
     <span class="eyebrow">Roofing Sheets</span>
     <h2>Priced by the Gauge</h2>
-    <p>Thicker gauge, stronger sheet, higher price per metre. Every bar below is the current rate — tap a gauge to jump straight to a quote for it.</p>
+    <p>Thicker gauge, stronger sheet, higher price per metre. Every bar below is the current rate. Tap a gauge to jump straight to a quote for it.</p>
   </div>
 
   <div class="ladder reveal">
-    <div class="ladder-bar" data-gauge="0.6mm" data-price="120" onclick="jumpToQuote('0.6mm — K120/m')">
+    <div class="ladder-bar" data-gauge="0.6mm" data-price="120" onclick="jumpToQuote('0.6mm · K120/m')">
       <div class="ladder-fill" style="height:100%;background:#232B2E;">
         <div class="price">K120<small>PER METRE</small></div>
       </div>
     </div>
-    <div class="ladder-bar" data-gauge="0.5mm" data-price="90" onclick="jumpToQuote('0.5mm — K90/m')">
+    <div class="ladder-bar" data-gauge="0.5mm" data-price="90" onclick="jumpToQuote('0.5mm · K90/m')">
       <div class="ladder-fill" style="height:78%;background:#1E4E7A;">
         <div class="price">K90<small>PER METRE</small></div>
       </div>
     </div>
-    <div class="ladder-bar" data-gauge="0.4mm" data-price="75" onclick="jumpToQuote('0.4mm — K75/m')">
+    <div class="ladder-bar" data-gauge="0.4mm" data-price="75" onclick="jumpToQuote('0.4mm · K75/m')">
       <div class="ladder-fill" style="height:64%;background:#2F6B3A;">
         <div class="price">K75<small>PER METRE</small></div>
       </div>
     </div>
-    <div class="ladder-bar" data-gauge="0.3mm" data-price="65" onclick="jumpToQuote('0.3mm — K65/m')">
+    <div class="ladder-bar" data-gauge="0.3mm" data-price="65" onclick="jumpToQuote('0.3mm · K65/m')">
       <div class="ladder-fill" style="height:54%;background:#D0202B;">
         <div class="price">K65<small>PER METRE</small></div>
       </div>
     </div>
-    <div class="ladder-bar" data-gauge="0.25mm" data-price="50" onclick="jumpToQuote('0.25mm Ordinary Silver — K50/m')">
+    <div class="ladder-bar" data-gauge="0.25mm" data-price="50" onclick="jumpToQuote('0.25mm Ordinary Silver · K50/m')">
       <div class="ladder-fill" style="height:42%;background:#8A9096;">
         <div class="price">K50<small>PER METRE</small></div>
       </div>
@@ -415,7 +424,7 @@
   </div>
 
   <div class="ladder-note reveal">
-    Prices are per metre, cut to the length you need. Self-lock roofing sheets are also available in the same colour range — ask for current pricing when you request a quote.
+    Prices are per metre, cut to the length you need. Self-lock roofing sheets are also available in the same colour range. Ask for current pricing when you request a quote.
   </div>
 
   <div class="swatch-row reveal">
@@ -482,12 +491,12 @@
   <div class="section-head reveal">
     <span class="eyebrow">From the Yard &amp; the Roof</span>
     <h2>Completed Work</h2>
-    <p>Real installations and real stock — not stock photography.</p>
+    <p>Real installations and real stock, not stock photography.</p>
   </div>
   <div class="gallery reveal">
     <div class="gallery-main lightbox-trigger">
       <img class="lightbox-img" src="images/project-gable-green.jpg" alt="Green IBR roof going up on a client build, house under construction">
-      <div class="gallery-main-label">Green IBR Roof — Client Build in Progress</div>
+      <div class="gallery-main-label">Green IBR Roof · Client Build in Progress</div>
     </div>
     <div class="gallery-side">
       <div class="gallery-side-item lightbox-trigger"><img class="lightbox-img" src="images/coil-warehouse.jpg" alt="Steel coil warehouse"></div>
@@ -528,7 +537,7 @@
   <div class="section-head reveal">
     <span class="eyebrow">Get a Price</span>
     <h2>Request a Quote</h2>
-    <p>Tell us the gauge, colour and how many metres — we'll get back to you with a firm price.</p>
+    <p>Tell us the gauge, colour and how many metres. We'll get back to you with a firm price.</p>
   </div>
   <div class="quote-wrap reveal">
     <form class="quote-form" id="quoteForm">
@@ -538,11 +547,11 @@
       <input type="tel" required placeholder="09XX XXX XXX">
       <label>Roofing Gauge</label>
       <select id="gaugeSelect">
-        <option>0.6mm — K120/m</option>
-        <option>0.5mm — K90/m</option>
-        <option>0.4mm — K75/m</option>
-        <option>0.3mm — K65/m</option>
-        <option>0.25mm Ordinary Silver — K50/m</option>
+        <option>0.6mm · K120/m</option>
+        <option>0.5mm · K90/m</option>
+        <option>0.4mm · K75/m</option>
+        <option>0.3mm · K65/m</option>
+        <option>0.25mm Ordinary Silver · K50/m</option>
         <option>Not sure yet</option>
       </select>
       <label>Metres Needed (approx.)</label>
@@ -550,7 +559,7 @@
       <label>Anything Else</label>
       <textarea placeholder="Colour preference, delivery address, or other products needed"></textarea>
       <button type="submit" class="btn btn-primary">Send Request</button>
-      <div class="quote-confirm" id="quoteConfirm">Thank you — your request has been received. Legency Roofings will call or WhatsApp you back with a firm price shortly.</div>
+      <div class="quote-confirm" id="quoteConfirm">Thank you! Your request has been received. Legency Roofings will call or WhatsApp you back with a firm price shortly.</div>
     </form>
 
     <div class="contact-block">
@@ -610,6 +619,17 @@
 <script>
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => header.classList.toggle('solid', window.scrollY > 60));
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navList = document.getElementById('navList');
+  function setMenu(open){
+    navList.classList.toggle('open', open);
+    menuToggle.textContent = open ? '✕' : '☰';
+    menuToggle.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  menuToggle.addEventListener('click', () => setMenu(!navList.classList.contains('open')));
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
