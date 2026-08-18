@@ -4,6 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legency Roofings &amp; Glass, Lusaka, Zambia</title>
+<meta name="description" content="Legency Roofings & Glass (The Roof Giant) — premium roofing sheets, aluminium window and door frames, and structural steel in Lusaka, Zambia. Request a quote today.">
+
+<!-- Open Graph / WhatsApp / Facebook preview -->
+<meta property="og:title" content="Legency Roofings & Glass, Lusaka, Zambia">
+<meta property="og:description" content="Roofs built to outlast the house. Roofing sheets in every gauge and colour, aluminium frames, and structural steel from Kasuba Road, Lusaka.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://legency-roofings.vercel.app/">
+<meta property="og:image" content="https://legency-roofings.vercel.app/images/project-hip-maroon.jpg">
+<meta property="og:image:width" content="1020">
+<meta property="og:image:height" content="765">
+
+<!-- Twitter/X card (falls back to OG tags on most platforms, added for completeness) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Legency Roofings & Glass, Lusaka, Zambia">
+<meta name="twitter:description" content="Roofs built to outlast the house. Roofing sheets in every gauge and colour, aluminium frames, and structural steel from Kasuba Road, Lusaka.">
+<meta name="twitter:image" content="https://legency-roofings.vercel.app/images/project-hip-maroon.jpg">
+
+<link rel="icon" type="image/png" href="images/logo.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -246,6 +265,11 @@
     border-left:3px solid var(--blue);color:var(--blue);font-size:13.5px;line-height:1.6;
   }
   .quote-confirm.show{display:block;}
+  .quote-error{
+    display:none;margin-top:16px;padding:16px 18px;background:rgba(208,32,43,0.08);
+    border-left:3px solid var(--red);color:var(--red);font-size:13.5px;line-height:1.6;
+  }
+  .quote-error.show{display:block;}
   .contact-block{background:var(--steel-900);color:#fff;padding:38px;}
   .contact-block .eyebrow{color:var(--silver);margin-bottom:18px;}
   .contact-block .eyebrow::before{background:var(--red);}
@@ -542,13 +566,13 @@
     <p>Tell us the gauge, colour and how many metres. We'll get back to you with a firm price.</p>
   </div>
   <div class="quote-wrap reveal">
-    <form class="quote-form" id="quoteForm">
-      <label>Full Name</label>
-      <input type="text" required placeholder="Your name">
-      <label>Phone Number</label>
-      <input type="tel" required placeholder="09XX XXX XXX">
-      <label>Roofing Gauge</label>
-      <select id="gaugeSelect">
+    <form class="quote-form" id="quoteForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="name" required placeholder="Your name">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="tel" id="phoneNumber" name="phone" required placeholder="09XX XXX XXX">
+      <label for="gaugeSelect">Roofing Gauge</label>
+      <select id="gaugeSelect" name="gauge">
         <option>0.6mm · K120/m</option>
         <option>0.5mm · K90/m</option>
         <option>0.4mm · K75/m</option>
@@ -556,12 +580,13 @@
         <option>0.25mm Ordinary Silver · K50/m</option>
         <option>Not sure yet</option>
       </select>
-      <label>Metres Needed (approx.)</label>
-      <input type="text" placeholder="e.g. 45m">
-      <label>Anything Else</label>
-      <textarea placeholder="Colour preference, delivery address, or other products needed"></textarea>
+      <label for="metresNeeded">Metres Needed (approx.)</label>
+      <input type="text" id="metresNeeded" name="metres" placeholder="e.g. 45m">
+      <label for="extraNotes">Anything Else</label>
+      <textarea id="extraNotes" name="notes" placeholder="Colour preference, delivery address, or other products needed"></textarea>
       <button type="submit" class="btn btn-primary">Send Request</button>
       <div class="quote-confirm" id="quoteConfirm">Thank you! Your request has been received. Legency Roofings will call or WhatsApp you back with a firm price shortly.</div>
+      <div class="quote-error" id="quoteError">Something went wrong sending your request. Please call or WhatsApp us directly using the details on the right.</div>
     </form>
 
     <div class="contact-block">
@@ -643,10 +668,34 @@
     document.getElementById('quote').scrollIntoView({behavior:'smooth'});
   }
 
-  document.getElementById('quoteForm').addEventListener('submit', (e) => {
+  document.getElementById('quoteForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    document.getElementById('quoteConfirm').classList.add('show');
-    e.target.reset();
+    const form = e.target;
+    const confirmEl = document.getElementById('quoteConfirm');
+    const errorEl = document.getElementById('quoteError');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    confirmEl.classList.remove('show');
+    errorEl.classList.remove('show');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        confirmEl.classList.add('show');
+        form.reset();
+      } else {
+        errorEl.classList.add('show');
+      }
+    } catch (err) {
+      errorEl.classList.add('show');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Request';
+    }
   });
 
   // --- Lightbox photo viewer ---
